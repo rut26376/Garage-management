@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "sRTH7Mkp93/61lBybx/BqSD/GpZvPWcmYI1+UowjAdI=",
+  "Source": "GarageManagementServer",
+  "BasePath": "_content/GarageManagementServer",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
