@@ -1,24 +1,27 @@
 import { Component, inject } from '@angular/core';
 import { Garage } from '../../Models/garage';
 import { GarageService } from '../../Services/garage.service';
-
+import { MatTableModule } from '@angular/material/table';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-main-page',
   standalone: true,
-  imports: [],
+  imports: [MatTableModule, CommonModule],
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.css'
 })
 export class MainPageComponent {
 
-  
+
   garageService = inject(GarageService);
-  garages:Garage[] = [];
+  displayedColumns: string[] = [];
+  garages: Garage[] = [];
   list$ = this.garageService.list$;
   ngOnInit(): void {
-
-   this.list$.subscribe(data => { this.garages = data; console.log("main page",this.garages) });
-   
+    this.list$.subscribe(data => {
+      this.garages = data;
+      this.displayedColumns = Object.keys(this.garages[0]);
+    });
   }
-   
+
 }

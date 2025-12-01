@@ -11,7 +11,7 @@ export class GarageService {
   list$ = this.getGaragesFromApi();
   garageLst!: Garage[];
   constructor(private http: HttpClient) {
-    this.list$.subscribe(data => { this.garageLst = data; console.log("garage service",this.garageLst) });
+    this.list$.subscribe(data => { this.garageLst = data});
    }
 
    getGaragesFromApi():Observable<Garage[]> {
