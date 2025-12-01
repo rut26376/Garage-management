@@ -10,7 +10,15 @@ namespace GarageManagementServer
         {
             var builder = WebApplication.CreateBuilder(args);
 
-
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAllOrigins", builder =>
+                {
+                    builder.AllowAnyOrigin()
+                           .AllowAnyMethod()
+                           .AllowAnyHeader();
+                });
+            });
 
             builder.Services.AddDbContext<WebDbContext>(options =>
                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -29,7 +37,7 @@ namespace GarageManagementServer
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-
+            app.UseCors("AllowAllOrigins");
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
