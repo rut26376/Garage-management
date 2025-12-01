@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace GarageManagementServer.Models;
 
 public partial class Garage
 {
+    [Key]
     public int _id { get; set; }
 
     public decimal? mispar_mosah { get; set; }

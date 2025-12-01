@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GarageManagementServer.Models;
 
-public partial class dbContext : DbContext
+public partial class WebDbContext : DbContext
 {
-    public dbContext()
+    public WebDbContext()
     {
     }
 
-    public dbContext(DbContextOptions<dbContext> options)
+    public WebDbContext(DbContextOptions<WebDbContext> options)
         : base(options)
     {
     }
@@ -25,7 +25,7 @@ public partial class dbContext : DbContext
     {
         modelBuilder.Entity<Garage>(entity =>
         {
-            entity.HasNoKey();
+           
 
             entity.Property(e => e.cod_miktzoa)
                 .HasColumnType("numeric(18, 0)")
@@ -37,13 +37,13 @@ public partial class dbContext : DbContext
                 .ValueGeneratedOnAdd()
                 .HasColumnName("_id");
             entity.Property(e => e.ktovet)
-                .HasMaxLength(1)
+                .HasMaxLength(255)
                 .HasColumnName("ktovet");
             entity.Property(e => e.menahel_miktzoa)
-                .HasMaxLength(1)
+                .HasMaxLength(255)
                 .HasColumnName("menahel_miktzoa");
             entity.Property(e => e.miktzoa)
-                .HasMaxLength(1)
+                .HasMaxLength(255)
                 .HasColumnName("miktzoa");
             entity.Property(e => e.mikud)
                 .HasColumnType("numeric(18, 0)")
@@ -55,19 +55,19 @@ public partial class dbContext : DbContext
                 .HasColumnType("numeric(18, 0)")
                 .HasColumnName("rasham_havarot");
             entity.Property(e => e.shem_mosah)
-                .HasMaxLength(1)
+                .HasMaxLength(255)
                 .HasColumnName("shem_mosah");
             entity.Property(e => e.sug_mosah)
-                .HasMaxLength(1)
+                .HasMaxLength(255)
                 .HasColumnName("sug_mosah");
             entity.Property(e => e.telephone)
-                .HasMaxLength(1)
+                .HasMaxLength(255)
                 .HasColumnName("telephone");
             entity.Property(e => e.TESTIME)
-                .HasMaxLength(1)
+                .HasMaxLength(255)
                 .HasColumnName("TESTIME");
             entity.Property(e => e.yishuv)
-                .HasMaxLength(1)
+                .HasMaxLength(255)
                 .HasColumnName("yishuv");
         });
 
