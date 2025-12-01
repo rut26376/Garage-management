@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Garage } from '../../Models/garage';
+import { GarageService } from '../../Services/garage.service';
 
 @Component({
   selector: 'app-main-page',
@@ -9,4 +11,14 @@ import { Component } from '@angular/core';
 })
 export class MainPageComponent {
 
+  
+  garageService = inject(GarageService);
+  garages:Garage[] = [];
+  list$ = this.garageService.list$;
+  ngOnInit(): void {
+
+   this.list$.subscribe(data => { this.garages = data; console.log("main page",this.garages) });
+   
+  }
+   
 }
