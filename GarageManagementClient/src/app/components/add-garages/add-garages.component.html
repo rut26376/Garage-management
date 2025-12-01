@@ -1,0 +1,17 @@
+<mat-form-field class="multy-select" >
+    <mat-label>בחר מוסך</mat-label>
+<mat-select multiple [(ngModel)]="selectedGarages">
+    <mat-option *ngFor="let garage of garages" [value]="garage"> {{garage.shem_mosah}}, {{garage.sug_mosah}} 
+       , {{garage.ktovet}} ,{{garage.yishuv}} ,{{garage.telephone}} ,{{garage.miktzoa}},
+       {{garage.menahel_miktzoa}} , {{garage.rasham_havarot}} ,{{garage.TESTIME}}
+    </mat-option>
+</mat-select>
+</mat-form-field>
+
+
+<p>Selected Garages:</p>
+<ul>
+  <li *ngFor="let garage of selectedGarages">
+    {{garage.shem_mosah}}, {{garage.sug_mosah}} , {{garage.ktovet}} ,{{garage.yishuv}} ,{{garage.telephone}} ,{{garage.miktzoa}},
+       {{garage.menahel_miktzoa}} , {{garage.rasham_havarot}} ,{{garage.TESTIME}}
+  </li>
