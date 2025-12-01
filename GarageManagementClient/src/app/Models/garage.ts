@@ -14,5 +14,6 @@ miktzoa?: string;
 menahel_miktzoa?: string;
 rasham_havarot?: number;
 TESTIME?: string;
+
 }
 
