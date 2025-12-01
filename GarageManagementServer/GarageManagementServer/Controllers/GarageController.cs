@@ -1,4 +1,5 @@
 ﻿using GarageManagementServer.Models;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -45,6 +46,20 @@ namespace GarageManagementServer.Controllers
             await _context.SaveChangesAsync();
 
         }
+
+        [HttpPost("/addGarage")]
+            public async Task<IActionResult> add([FromBody] Garage garage)
+        {
+            if (garage != null)
+            {
+                await _context.Garages.AddAsync(garage);
+                await _context.SaveChangesAsync();
+                return Ok(garage._id);
+            }
+            else
+                return BadRequest("Garage is null");
+        }
+        
 
 
     }
