@@ -31,30 +31,27 @@ namespace GarageManagementServer.Controllers
 
             var jsonString = await response.Content.ReadAsStringAsync();
             var jsonResponse = JsonConvert.DeserializeObject<GarageApiResponse>(jsonString);
-            await addGaragesToDB(jsonResponse.Result.Records);
             return Ok(jsonResponse.Result.Records);
         }
-        private async Task addGaragesToDB(List<Garage> garages)
+
+        [HttpGet("/getGaragesFromDb")]
+        
+        public async Task<IActionResult> getGaragesFromDb()
         {
-            foreach (var garage in garages)
-            {
-                garage._id = 0;
-            }
-
-            await _context.AddRangeAsync(garages);
-
-            await _context.SaveChangesAsync();
-
+            List<Garage> garages =await _context.Garages.ToListAsync();
+            return Ok(garages);
         }
 
+       
+
         [HttpPost("/addGarage")]
-            public async Task<IActionResult> add([FromBody] Garage garage)
+            public async Task<IActionResult> add([FromBody]List<Garage> garages)
         {
-            if (garage != null)
+            if (garages != null)
             {
-                await _context.Garages.AddAsync(garage);
+                await _context.Garages.AddRangeAsync(garages);
                 await _context.SaveChangesAsync();
-                return Ok(garage._id);
+                return Ok(garages);
             }
             else
                 return BadRequest("Garage is null");
