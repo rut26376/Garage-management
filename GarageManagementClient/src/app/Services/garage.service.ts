@@ -8,14 +8,21 @@ import { Observable } from 'rxjs';
 })
 export class GarageService {
  
-  list$ = this.getGaragesFromApi();
-  garageLst!: Garage[];
+  listApi$ = this.getGaragesFromApi();
+  listDb$ = this.getGaragesFromDb();
+  garageFromApi!: Garage[];
+  garageFromDb!: Garage[];
   constructor(private http: HttpClient) {
-    this.list$.subscribe(data => { this.garageLst = data});
+    this.listApi$.subscribe(data => { this.garageFromApi = data});
+    this.listDb$.subscribe(data => { this.garageFromDb = data});
    }
 
    getGaragesFromApi():Observable<Garage[]> {
     return this.http.get<Garage[]>('http://localhost:5271/getGaragesFromApi');
+   }
+
+   getGaragesFromDb():Observable<Garage[]> {
+    return this.http.get<Garage[]>('http://localhost:5271/getGaragesFromDb');
    }
   
 }

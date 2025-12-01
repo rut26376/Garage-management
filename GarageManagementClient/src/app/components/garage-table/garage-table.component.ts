@@ -18,9 +18,9 @@ export class GarageTableComponent {
   garageService = inject(GarageService);
   displayedColumns: string[] = [];
   garages: Garage[] = [];
-  list$ = this.garageService.list$;
+  listDb$ = this.garageService.listDb$;
   ngOnInit(): void {
-    this.list$.subscribe(data => {
+    this.listDb$.subscribe(data => {
       this.garages = data;
       this.displayedColumns = Object.keys(this.garages[0]);
     });
