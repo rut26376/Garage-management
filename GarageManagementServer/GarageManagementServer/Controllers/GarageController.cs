@@ -21,7 +21,7 @@ namespace GarageManagementServer.Controllers
             _context = context;
         }
 
-        [HttpGet("/getAllGarages")]
+        [HttpGet("/getGaragesFromApi")]
         public async Task<IActionResult> getAll()
         {
             HttpClient _httpClient = new HttpClient();
