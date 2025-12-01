@@ -1,5 +1,15 @@
 [
   {
+    "ContainingType": "GarageManagementServer.Controllers.GarageController",
+    "Method": "getAll",
+    "RelativePath": "getAllGarages",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "GarageManagementServer.Controllers.WeatherForecastController",
     "Method": "Get",
     "RelativePath": "WeatherForecast",

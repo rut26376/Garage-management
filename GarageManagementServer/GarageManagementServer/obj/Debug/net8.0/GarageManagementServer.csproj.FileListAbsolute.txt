@@ -135,3 +135,4 @@ C:\Users\שרה לוין\Desktop\Ruty Koren\קורות חיים\Garage-managemen
 C:\Users\שרה לוין\Desktop\Ruty Koren\קורות חיים\Garage-management\GarageManagementServer\GarageManagementServer\obj\Debug\net8.0\GarageManagementServer.pdb
 C:\Users\שרה לוין\Desktop\Ruty Koren\קורות חיים\Garage-management\GarageManagementServer\GarageManagementServer\obj\Debug\net8.0\GarageManagementServer.genruntimeconfig.cache
 C:\Users\שרה לוין\Desktop\Ruty Koren\קורות חיים\Garage-management\GarageManagementServer\GarageManagementServer\obj\Debug\net8.0\ref\GarageManagementServer.dll
+C:\Users\שרה לוין\Desktop\Ruty Koren\קורות חיים\Garage-management\GarageManagementServer\GarageManagementServer\bin\Debug\net8.0\Newtonsoft.Json.dll

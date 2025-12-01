@@ -5,6 +5,18 @@
     "version": "1.0"
   },
   "paths": {
+    "/getAllGarages": {
+      "get": {
+        "tags": [
+          "Garage"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/WeatherForecast": {
       "get": {
         "tags": [
