@@ -30,20 +30,31 @@ namespace GarageManagementServer.Controllers
 
             var jsonString = await response.Content.ReadAsStringAsync();
             var jsonResponse = JsonConvert.DeserializeObject<GarageApiResponse>(jsonString);
-
-            return Ok(jsonResponse.Result.Records); 
+            await addGaragesToDB(jsonResponse.Result.Records);
+            return Ok(jsonResponse.Result.Records);
         }
+        private async Task addGaragesToDB(List<Garage> garages)
+        {
+            foreach (var garage in garages)
+            {
+                garage._id = 0;
+            }
 
+            await _context.AddRangeAsync(garages);
+
+            await _context.SaveChangesAsync();
+
+        }
 
 
     }
-        public class GarageApiResponse
-        {
-            public GarageApiResult Result { get; set; }
-        }
-
-        public class GarageApiResult
-        {
-            public List<Garage> Records { get; set; }
-        }
+    public class GarageApiResponse
+    {
+        public GarageApiResult Result { get; set; }
     }
+
+    public class GarageApiResult
+    {
+        public List<Garage> Records { get; set; }
+    }
+}
