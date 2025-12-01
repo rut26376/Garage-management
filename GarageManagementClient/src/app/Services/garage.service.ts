@@ -24,5 +24,9 @@ export class GarageService {
    getGaragesFromDb():Observable<Garage[]> {
     return this.http.get<Garage[]>('http://localhost:5271/getGaragesFromDb');
    }
+
+   addGaragesToDb(garages: Garage[]):Observable<any> {
+    return this.http.post<any>('http://localhost:5271/addGarage', garages);
+    }
   
 }

@@ -16,13 +16,12 @@ import { FormsModule } from '@angular/forms';
 export class GarageTableComponent {
 
   garageService = inject(GarageService);
-  displayedColumns: string[] = [];
+  displayedColumns: string[] = ["_id" , "mispar_mosah" , "shem_mosah" , "cod_sug_mosah" , "sug_mosah" , "ktovet" , "yishuv" , "telephone" , "mikud" , "cod_miktzoa" , "miktzoa" , "menahel_miktzoa" , "rasham_havarot" , "TESTIME"];
   garages: Garage[] = [];
   listDb$ = this.garageService.listDb$;
   ngOnInit(): void {
     this.listDb$.subscribe(data => {
       this.garages = data;
-      this.displayedColumns = Object.keys(this.garages[0]);
     });
   }
 
