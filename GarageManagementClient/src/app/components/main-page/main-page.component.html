@@ -9,3 +9,12 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
 </table>
+<mat-form-field>
+    <mat-label>בחר מוסך</mat-label>
+<mat-select multiple >
+    <mat-option *ngFor="let garage of garages" [value]="garage"> {{garage.shem_mosah}}, {{garage.sug_mosah}} 
+       , {{garage.ktovet}} ,{{garage.yishuv}} ,{{garage.telephone}} ,{{garage.miktzoa}},
+       {{garage.menahel_miktzoa}} , {{garage.rasham_havarot}} ,{{garage.TESTIME}}
+    </mat-option>
+</mat-select>
+</mat-form-field>
