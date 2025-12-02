@@ -5,11 +5,11 @@ import { MatTableModule } from '@angular/material/table';
 import { CommonModule } from '@angular/common';
 import {MatSelectModule} from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
-
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 @Component({
   selector: 'app-garage-table',
   standalone: true,
-  imports: [MatTableModule, CommonModule , MatSelectModule , FormsModule],
+  imports: [MatTableModule, CommonModule , MatSelectModule , FormsModule , MatProgressSpinnerModule],
   templateUrl: './garage-table.component.html',
   styleUrl: './garage-table.component.css'
 })
@@ -20,9 +20,11 @@ export class GarageTableComponent {
   @Input()
   garages: Garage[] = [];
   listDb$ = this.garageService.listDb$;
+  isLoading: boolean = true;
   ngOnInit(): void {
     this.listDb$.subscribe(data => {
       this.garages = data;
+      this.isLoading = false;
     });
   }
 }

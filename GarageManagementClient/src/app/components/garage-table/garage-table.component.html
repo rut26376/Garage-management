@@ -1,4 +1,4 @@
-<table mat-table [dataSource]="garages" class="mat-elevation-z8">
+<table mat-table [dataSource]="garages" class="mat-elevation-z8" *ngIf="!isLoading">
 
   <ng-container *ngFor="let c of displayedColumns;" matColumnDef="{{c}}">
     <th mat-header-cell *matHeaderCellDef> {{(c.charAt(0).toUpperCase() + c.slice(1)).replaceAll('_' , ' ')}} </th>
@@ -8,3 +8,5 @@
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
 </table>
+
+<mat-progress-spinner *ngIf="isLoading" mode="indeterminate"></mat-progress-spinner>
