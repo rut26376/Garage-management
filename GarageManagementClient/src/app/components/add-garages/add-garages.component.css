@@ -1,0 +1,11 @@
+.multy-select {
+    margin-top: 20px;
+  width: 50%;
+}
+
+.add-garages-container
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

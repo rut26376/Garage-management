@@ -1,3 +1,5 @@
+
+<div class="add-garages-container">
 <mat-form-field class="multy-select" >
     <mat-label>בחר מוסך</mat-label>
 <mat-select multiple [(ngModel)]="selectedGarages">
@@ -9,14 +11,6 @@
 </mat-form-field>
 
 
-<p>Selected Garages:</p>
-<ul>
-  <li *ngFor="let garage of selectedGarages">
-    {{garage.shem_mosah}}, {{garage.sug_mosah}} , {{garage.ktovet}} ,{{garage.yishuv}} ,{{garage.telephone}} ,{{garage.miktzoa}},
-       {{garage.menahel_miktzoa}} , {{garage.rasham_havarot}} ,{{garage.TESTIME}}
-  </li>
-</ul>
-
-  <button mat-raised-button color="primary" (click)="addSelectedGaragesToDb()" *ngIf="!isLoading">הוסף מוסכים נבחרים</button>
+  <button mat-raised-button (click)="addSelectedGaragesToDb()" *ngIf="!isLoading">הוסף מוסכים נבחרים</button>
 <mat-progress-spinner *ngIf="isLoading" mode="indeterminate"></mat-progress-spinner>
-
+</div>
