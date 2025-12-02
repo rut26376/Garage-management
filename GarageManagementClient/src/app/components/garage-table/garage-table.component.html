@@ -1,5 +1,11 @@
 <div class="garage-tbl-container">
-<table mat-table [dataSource]="garages" class="mat-elevation-z8 garage-tbl" *ngIf="!isLoading">
+    <div class="filters-container">
+<mat-form-field class="filter" *ngFor="let s of filterBy">
+    <mat-label class="filter-lbl">{{(s.charAt(0).toUpperCase() + s.slice(1)).replaceAll('_' , ' ')}}</mat-label>
+    <input matInput  (keyup)="search($event , s)"  placeholder="חפש מוסך" class="filter-input">
+</mat-form-field>
+</div>
+<table mat-table [dataSource]="displayGarages" class="mat-elevation-z8 garage-tbl" *ngIf="!isLoading">
 
   <ng-container *ngFor="let c of displayedColumns;" matColumnDef="{{c}}">
     <th mat-header-cell *matHeaderCellDef> {{(c.charAt(0).toUpperCase() + c.slice(1)).replaceAll('_' , ' ')}} </th>
