@@ -1,4 +1,4 @@
 
- <app-garage-table ></app-garage-table>
+ <app-garage-table [garages]="garages"></app-garage-table>
 
-<app-add-garages ></app-add-garages>
+<app-add-garages (garagesUpdated)="onGaragesUpdated($event)"></app-add-garages>

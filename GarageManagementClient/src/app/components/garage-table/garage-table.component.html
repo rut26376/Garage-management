@@ -1,6 +1,6 @@
 <table mat-table [dataSource]="garages" class="mat-elevation-z8">
 
-  <ng-container *ngFor="let c of displayedColumns" matColumnDef="{{c}}">
+  <ng-container *ngFor="let c of displayedColumns;" matColumnDef="{{c}}">
     <th mat-header-cell *matHeaderCellDef> {{(c.charAt(0).toUpperCase() + c.slice(1)).replaceAll('_' , ' ')}} </th>
     <td mat-cell *matCellDef="let garage"> {{garage[c]}} </td>
   </ng-container>
