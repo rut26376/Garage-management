@@ -32,7 +32,9 @@ export class GarageTableComponent {
       this.displayGarages.push(...this.garages);
     });
   }
-
+  ngOnChanges(): void {
+    this.displayGarages = this.garages;
+  }
   search(event: Event, type: string) {
     const filterValue = (event.target as HTMLInputElement).value.toLowerCase();
     if (filterValue === '') {
