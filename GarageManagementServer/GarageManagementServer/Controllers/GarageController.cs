@@ -51,7 +51,7 @@ namespace GarageManagementServer.Controllers
             {
                 await _context.Garages.AddRangeAsync(garages);
                 await _context.SaveChangesAsync();
-                return Ok(garages);
+                return Ok();
             }
             else
                 return BadRequest("Garage is null");
